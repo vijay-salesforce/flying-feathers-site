@@ -18,14 +18,14 @@ const batches = [
 ];
 const coaches = [
   { n: "Head Coach - Mr. Kathiresan", b: "Former state-level player with 10+ years of coaching experience." },
-  { n: "Coach - Pradeep", b: "Certified junior coach focused on technique and footwork." },
+  { n: "Coach - Mr. Pradeep", b: "Certified junior coach focused on technique and footwork." },
 ];
 
 // TODO: put real photos in public/players/ and set src, e.g. "/players/1.jpg"
 const players = [
-  { src: "", alt: "Player training at the academy" },
-  { src: "", alt: "Junior batch on court" },
-  { src: "", alt: "Tournament match" },
+  { src: "/players/1.jpg", alt: "Player training at the academy" },
+  { src: "/players/2.jpg", alt: "Junior batch on court" },
+  { src: "/players/3.jpg", alt: "Tournament match" },
 ];
 // TODO: replace with real partner or sponsor names
 const partners = ["Yonex India", "SunRISE", "VentXpert", "Gargi", "Shutly Academy Managemnet"];
