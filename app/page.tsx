@@ -1,8 +1,8 @@
 import EnquiryForm from "./enquiry-form";
 
 // TODO: replace all placeholder content below with real academy details.
-const PHONE = "+91 90000 00000";
-const WHATSAPP = "https://wa.me/919000000000?text=Hi%2C%20I%27d%20like%20a%20free%20trial%20at%20Flying%20Feathers";
+const PHONE = "+91 96770 92392";
+const WHATSAPP = "https://wa.me/919677092392?text=Hi%2C%20I%27d%20like%20a%20free%20trial%20at%20Flying%20Feathers";
 
 const programs = [
   { t: "Kids beginners", d: "Ages 6 to 10. Footwork, grip and fun games that build a love for the sport." },
@@ -17,8 +17,8 @@ const batches = [
   ["Adults", "Sat, Sun", "7:00 to 8:30 am", "Rs. 2,000 / month"],
 ];
 const coaches = [
-  { n: "Head Coach Name", b: "Former state-level player with 10+ years of coaching experience." },
-  { n: "Coach Name", b: "Certified junior coach focused on technique and footwork." },
+  { n: "Head Coach Name - Kathiresan", b: "Former state-level player with 10+ years of coaching experience." },
+  { n: "Coach Name - Pradeep", b: "Certified junior coach focused on technique and footwork." },
 ];
 
 function Court() {
@@ -35,24 +35,54 @@ function Court() {
   );
 }
 
+function Smash() {
+  return (
+    <svg role="img" aria-label="Badminton player jumping to smash" className="mx-auto h-72 w-auto sm:h-96" viewBox="0 0 340 440" fill="none" strokeLinecap="round" strokeLinejoin="round">
+      <ellipse cx="150" cy="425" rx="70" ry="8" fill="#000" opacity=".25" />
+      <g stroke="#f3f7f6">
+        <circle cx="150" cy="130" r="19" fill="#f3f7f6" />
+        <path d="M150 165 L146 255" strokeWidth="32" />
+        <path d="M155 172 L205 122 L228 82" strokeWidth="13" />
+        <path d="M140 172 L104 208 L84 190" strokeWidth="12" />
+        <path d="M146 255 L114 322 L96 392" strokeWidth="17" />
+        <path d="M148 255 L188 300 L166 362" strokeWidth="17" />
+      </g>
+      <g stroke="#f2c230">
+        <path d="M228 82 L246 54" strokeWidth="6" />
+        <ellipse cx="259" cy="32" rx="17" ry="27" transform="rotate(35 259 32)" strokeWidth="5" />
+        <path d="M250 22 L268 42 M244 32 L262 52 M256 12 L274 32" strokeWidth="1.5" opacity=".6" />
+      </g>
+      <path d="M300 50 Q 318 120 262 182" stroke="#f3f7f6" strokeWidth="2" strokeDasharray="4 8" opacity=".5" />
+      <g transform="translate(296 96) rotate(-35)">
+        <circle cx="0" cy="0" r="7" fill="#f2c230" />
+        <path d="M-6 -3 L-14 -26 M0 -5 L0 -28 M6 -3 L14 -26 M-6 -3 Q0 -30 6 -3" stroke="#f3f7f6" strokeWidth="2.5" fill="#f3f7f6" fillOpacity=".25" />
+      </g>
+    </svg>
+  );
+}
+
 export default function Home() {
   return (
     <main>
       <header className="relative overflow-hidden bg-court-deep text-line">
         <Court />
         <nav className="relative mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
-          <span className="font-display text-xl font-bold">Flying Feathers</span>
+          <span className="font-display text-3xl font-extrabold sm:text-4xl">Flying Feathers</span>
           <div className="hidden gap-6 text-sm sm:flex">
             <a href="#programs">Programs</a><a href="#batches">Batches</a><a href="#coaches">Coaches</a><a href="#contact">Contact</a>
           </div>
         </nav>
-        <div className="relative mx-auto max-w-6xl px-6 pb-24 pt-16 sm:pt-24">
-          <h1 className="max-w-3xl text-5xl font-extrabold leading-[1.05] sm:text-7xl">Train like every rally counts.</h1>
-          <p className="mt-6 max-w-xl text-lg text-line/85">Professional badminton coaching for kids, juniors and adults. Certified coaches, small batches and match practice every week.</p>
-          <div className="mt-10 flex flex-wrap gap-4">
-            <a href="#contact" className="rounded-md bg-shuttle px-6 py-3 font-semibold text-ink">Book a free trial</a>
-            <a href={WHATSAPP} className="rounded-md border border-line/60 px-6 py-3 font-semibold">Chat on WhatsApp</a>
+        <div className="relative mx-auto grid max-w-6xl items-center gap-8 px-6 pb-20 pt-10 sm:pt-16 lg:grid-cols-2">
+          <div>
+            <h1 className="text-5xl font-extrabold leading-[1.05] sm:text-7xl">Train like every rally counts.</h1>
+            <p className="mt-6 max-w-xl text-lg text-line/85">Professional badminton coaching for kids, juniors and adults. Certified coaches, small batches and match practice every week.</p>
+            <div className="mt-10 flex flex-wrap gap-4">
+              <a href="#contact" className="rounded-md bg-shuttle px-6 py-3 font-semibold text-ink">Book a free trial</a>
+              <a href={WHATSAPP} className="rounded-md border border-line/60 px-6 py-3 font-semibold">Chat on WhatsApp</a>
+            </div>
           </div>
+          {/* TODO: replace with a real photo of your players, e.g. <Image src="/hero.jpg" .../> in public/ */}
+          <Smash />
         </div>
       </header>
 
@@ -106,7 +136,7 @@ export default function Home() {
             <dl className="mt-8 grid gap-3">
               <div><dt className="text-sm text-line/70">Address</dt><dd>Academy address, Chennai</dd></div>
               <div><dt className="text-sm text-line/70">Phone</dt><dd><a href={`tel:${PHONE.replace(/ /g, "")}`}>{PHONE}</a></dd></div>
-              <div><dt className="text-sm text-line/70">Hours</dt><dd>Mon to Sat, 6:00 am to 8:30 pm</dd></div>
+              <div><dt className="text-sm text-line/70">Hours</dt><dd>Mon to Sat, 5:00 am to 11:30 pm</dd></div>
             </dl>
           </div>
           <div className="text-ink"><EnquiryForm /></div>
