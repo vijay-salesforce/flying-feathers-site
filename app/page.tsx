@@ -17,9 +17,40 @@ const batches = [
   ["Adults", "Sat, Sun", "7:00 to 8:30 am", "Rs. 2,000 / month"],
 ];
 const coaches = [
-  { n: "Head Coach Name - Kathiresan", b: "Former state-level player with 10+ years of coaching experience." },
-  { n: "Coach Name - Pradeep", b: "Certified junior coach focused on technique and footwork." },
+  { n: "Head Coach - Mr. Kathiresan", b: "Former state-level player with 10+ years of coaching experience." },
+  { n: "Coach - Pradeep", b: "Certified junior coach focused on technique and footwork." },
 ];
+
+// TODO: put real photos in public/players/ and set src, e.g. "/players/1.jpg"
+const players = [
+  { src: "", alt: "Player training at the academy" },
+  { src: "", alt: "Junior batch on court" },
+  { src: "", alt: "Tournament match" },
+];
+// TODO: replace with real partner or sponsor names
+const partners = ["Yonex India", "SunRISE", "VentXpert", "Gargi", "Shutly Academy Managemnet"];
+
+function PlayerPhotos({ className = "" }: { className?: string }) {
+  return (
+    <div className={className}>
+      {players.map((p, i) => (
+        <div key={i} className="grid aspect-[4/3] place-items-center overflow-hidden rounded-lg bg-court/15 text-sm text-ink/60">
+          {p.src ? <img src={p.src} alt={p.alt} className="h-full w-full object-cover" /> : "Player photo"}
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function PartnerList({ className = "" }: { className?: string }) {
+  return (
+    <ul className={className}>
+      {partners.map((n) => (
+        <li key={n} className="rounded-lg border border-ink/15 bg-white px-4 py-3 text-center font-semibold">{n}</li>
+      ))}
+    </ul>
+  );
+}
 
 function Court() {
   return (
@@ -64,6 +95,15 @@ function Smash() {
 export default function Home() {
   return (
     <main>
+      {/* Side panels: only on very wide screens, where there is empty space beside the content */}
+      <aside aria-label="Players in action" className="fixed left-3 top-24 z-10 hidden w-56 rounded-xl bg-white/95 p-3 shadow-lg min-[1650px]:block">
+        <h2 className="mb-3 text-base font-bold">Players in action</h2>
+        <PlayerPhotos className="grid gap-3" />
+      </aside>
+      <aside aria-label="Our partners" className="fixed right-3 top-24 z-10 hidden w-56 rounded-xl bg-white/95 p-3 shadow-lg min-[1650px]:block">
+        <h2 className="mb-3 text-base font-bold">Our partners</h2>
+        <PartnerList className="grid gap-3" />
+      </aside>
       <header className="relative overflow-hidden bg-court-deep text-line">
         <Court />
         <nav className="relative mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
@@ -128,15 +168,22 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="mx-auto max-w-6xl px-6 py-16 min-[1650px]:hidden">
+        <h2 className="text-3xl font-bold sm:text-4xl">Players in action</h2>
+        <PlayerPhotos className="mt-6 grid gap-4 sm:grid-cols-3" />
+        <h2 className="mt-14 text-3xl font-bold sm:text-4xl">Our partners</h2>
+        <PartnerList className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4" />
+      </section>
+
       <section id="contact" className="bg-court py-20 text-line">
         <div className="mx-auto grid max-w-6xl gap-12 px-6 md:grid-cols-2">
           <div>
             <h2 className="text-3xl font-bold sm:text-4xl">Your first session is free</h2>
             <p className="mt-4 max-w-md text-line/85">Fill in the form and we'll call you to fix a time. Rackets are available for trial sessions.</p>
             <dl className="mt-8 grid gap-3">
-              <div><dt className="text-sm text-line/70">Address</dt><dd>Academy address, Chennai</dd></div>
+              <div><dt className="text-sm text-line/70">Address</dt><dd>34, New Colony, 2nd Main Road, Alwartirunagar, Virugambakkam, Chennai</dd></div>
               <div><dt className="text-sm text-line/70">Phone</dt><dd><a href={`tel:${PHONE.replace(/ /g, "")}`}>{PHONE}</a></dd></div>
-              <div><dt className="text-sm text-line/70">Hours</dt><dd>Mon to Sat, 5:00 am to 11:30 pm</dd></div>
+              <div><dt className="text-sm text-line/70">Hours</dt><dd>Mon to Sat, 6:00 am to 11:30 pm</dd></div>
             </dl>
           </div>
           <div className="text-ink"><EnquiryForm /></div>
