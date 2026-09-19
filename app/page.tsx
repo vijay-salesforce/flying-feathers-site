@@ -17,8 +17,8 @@ const batches = [
   ["Adults", "Sat, Sun", "7:00 to 8:30 am", "Rs. 2,000 / month"],
 ];
 const coaches = [
-  { n: "Head Coach - Mr. Kathiresan", src: "/coaches/head-coach.jpg", b: "Former state-level player with 10+ years of coaching experience." },
-  { n: "Coach - Mr. Pradeep", src: "/coaches/coach-2.jpg", b: "Certified junior coach focused on technique and footwork." },
+  { n: "Head Coach - Mr. Kathiresan", src: "/coaches/head-coach.jpg", pos: "50% 25%", b: "..." },
+  { n: "Coach - Mr. Pradeep", src: "/coaches/coach-2.jpg", pos: "50% 10%", b: "..." },
 ];
 
 // TODO: put real photos in public/players/ and set src, e.g. "/players/1.jpg"
@@ -162,7 +162,7 @@ export default function Home() {
           {coaches.map((c) => (
             <div key={c.n} className="flex gap-5">
               {c.src ? (
-                <img src={c.src} alt={c.n} className="h-24 w-24 shrink-0 rounded-full object-cover" />
+                <img src={c.src} alt={c.n} style={{ objectPosition: c.pos ?? "50% 20%" }} className="h-24 w-24 shrink-0 rounded-full object-cover" />
               ) : (
                 <div className="h-24 w-24 shrink-0 rounded-full bg-court/20" aria-hidden />
               )}
